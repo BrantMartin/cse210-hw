@@ -1,6 +1,6 @@
-public class Goal
+public abstract class Goal
 {
-    protected string _shortName;
+    public string _shortName;
     protected string _description;
     protected string _points;
 
@@ -11,23 +11,24 @@ public class Goal
         _points = points;
     }
 
-    public void RecordEvent()
+    public virtual void RecordEvent()
     {
-
+        Console.WriteLine($"Congratulations! You have earned {_points} points!");
     }
 
-    public bool IsComplete()
+
+    public virtual bool IsComplete()
     {
-        return true;
+        return false;
     }
 
-    public string GetDetailsString()
+    public virtual string GetDetailsString()
     {
-        return "";
+        return _description;
     }
 
-    public string GetStringRepresentational()
+    public virtual string GetStringRepresentational()
     {
-        return "";
+        return $"{_shortName}, {_description}, {_points}";
     }
 }
